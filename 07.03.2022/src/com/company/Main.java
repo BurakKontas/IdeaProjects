@@ -1,35 +1,55 @@
 package com.company;
 
-public class Main {
-    static int elemanSayisi = 10;
-    static int isaretci = 0;
-    static int[] kuyruk = new int[elemanSayisi];
+class Kuyruk {
+    int elemanSayisi = 0;
+    int isaretci = 0;
+    int[] kuyruk;
 
-    static void ekle(int eklenecek) {
-        kuyruk[isaretci]=eklenecek;
-        isaretci++;
+    public Kuyruk(int elemanSayisi) {
+        this.elemanSayisi = elemanSayisi;
+        kuyruk = new int[elemanSayisi];
     }
 
-    static int sil() {
+    int ekle(int eklenecek) {
+        kuyruk[isaretci]=eklenecek;
+        isaretci++;
+        return eklenecek;
+    }
+
+    int sil() {
         int deger = kuyruk[0];
-        for (int i = 0; i < isaretci; i++) kuyruk[i-1] = kuyruk[i];
+        for (int i = 1; i < isaretci; i++) kuyruk[i-1] = kuyruk[i];
         isaretci--;
         return deger;
     }
 
-    static String listele() {
+     String listele() {
         String cikti = "";
         for(int i=0;i<isaretci;i++) cikti += kuyruk[i]+"<-";
         return cikti;
     }
+}
+
+public class Main {
+
+
 
     public static void main(String[] args) {
 	// write your code here
-    ekle(5);
-    System.out.println(listele());
-    ekle(2);
-    System.out.println(listele());
-    System.out.println("Çıkartılan Eleman "+sil());
-    System.out.println(listele());
+        var kuyruk = new Kuyruk(5);
+        System.out.println("Eklenecek: "+kuyruk.ekle(10));
+        System.out.println(kuyruk.listele());
+        System.out.println("Eklenecek: "+kuyruk.ekle(20));
+        System.out.println(kuyruk.listele());
+        System.out.println("Çıkartılan Eleman: "+kuyruk.sil());
+        System.out.println(kuyruk.listele());
+        System.out.println("Eklenecek: "+kuyruk.ekle(30));
+        System.out.println(kuyruk.listele());
+        System.out.println("Eklenecek: "+kuyruk.ekle(40));
+        System.out.println(kuyruk.listele());
+        System.out.println("Çıkartılan Eleman: "+kuyruk.sil());
+        System.out.println(kuyruk.listele());
+        System.out.println("Eklenecek: "+kuyruk.ekle(50));
+        System.out.println(kuyruk.listele());
     }
 }
