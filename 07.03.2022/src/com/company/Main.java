@@ -1,32 +1,36 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Kuyruk {
-    int elemanSayisi = 0;
-    int isaretci = 0;
-    int[] kuyruk;
+    private int elemanSayisi = 0;
+    private int isaretci = 0;
+    private List<Integer> kuyruk;
 
     public Kuyruk(int elemanSayisi) {
         this.elemanSayisi = elemanSayisi;
-        kuyruk = new int[elemanSayisi];
+        kuyruk = new ArrayList<>();
     }
 
     int ekle(int eklenecek) {
-        kuyruk[isaretci]=eklenecek;
-        isaretci++;
+        if(isaretci++ == elemanSayisi) return -1;
+        kuyruk.add(eklenecek);
         return eklenecek;
     }
 
     int sil() {
-        int deger = kuyruk[0];
-        for (int i = 1; i < isaretci; i++) kuyruk[i-1] = kuyruk[i];
+        if(isaretci == 0) return -1;
+        int deger = kuyruk.get(0);
+        kuyruk.remove(0);
         isaretci--;
         return deger;
     }
 
      String listele() {
-        String cikti = "";
-        for(int i=0;i<isaretci;i++) cikti += kuyruk[i]+"<-";
-        return cikti;
+        var builder = new StringBuilder();
+        for(int i=0;i< kuyruk.size();i++) builder.append(kuyruk.get(i)).append("<-");
+        return builder.toString();
     }
 }
 
