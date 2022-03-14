@@ -32,11 +32,18 @@ class Rand {
         }
         return liste;
     }
+    public List<Double> doubleListesiAl(int elemanSayisi,double minimumDeger,double maximumDeger) {
+        List<Double> liste = new ArrayList<>();
+        for (int i = 0; i < elemanSayisi; i++) {
+            liste.add(random.nextDouble(minimumDeger,maximumDeger));
+        }
+        return liste;
+    }
 }
 
 public class Main {
 
-    static void listele(List<Integer> liste) {
+    static <T> void listele(List<T> liste) {
         for(var eleman:liste) System.out.println(eleman);
     }
 
@@ -45,5 +52,7 @@ public class Main {
         var r = new Rand();
         var sonuc = r.intListesiAl(10,150,500);
         listele(sonuc);
+        var doubleSonuc = r.doubleListesiAl(10,50.15,60.987);
+        listele(doubleSonuc);
     }
 }
