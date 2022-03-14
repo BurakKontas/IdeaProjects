@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 class Rand {
     Random random;
 
@@ -45,6 +46,7 @@ public class Main {
 
     static <T> void listele(List<T> liste) {
         for(var eleman:liste) System.out.println(eleman);
+        System.out.print("\n");//println pref
     }
 
     public static void main(String[] args) {
