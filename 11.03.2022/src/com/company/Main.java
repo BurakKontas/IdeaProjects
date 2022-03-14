@@ -1,8 +1,10 @@
 package com.company;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 
 class Rand {
@@ -56,5 +58,33 @@ public class Main {
         listele(sonuc);
         var doubleSonuc = r.doubleListesiAl(10,50.15,60.987);
         listele(doubleSonuc);
+
+        //////////////////////////////////////
+        String dosyaYolu="C:/Users/konta/Desktop/Projects/Test/ogrenciler.txt";
+        var ogrenciListesi = new OgrenciListesi(Path.of(dosyaYolu));
+        while(true) {
+            ogrenciListesi.listele();
+            System.out.println("1. Ekle");
+            System.out.println("2. Sil");
+            System.out.println("3. Çıkış");
+            var scanner = new Scanner(System.in);
+            var secim = scanner.nextInt();
+            if (secim == 1) {
+                var tcNo = scanner.nextLine();
+                var adSoyad = scanner.nextLine();
+                var adres = scanner.nextLine();
+                var yeniOgrenci = new Ogrenci(tcNo, adSoyad, adres);
+                ogrenciListesi.ekle(yeniOgrenci);
+            } else if (secim == 2) {
+                System.out.println("Silinecek Kaydın Indisini Giriniz: ");
+                var indis = scanner.nextInt();
+                ogrenciListesi.sil(indis);
+            } else if (secim == 3) {
+                ogrenciListesi.dosyayaKaydet();
+                break;
+            }
+        }
+        /////////////////////////////////////
+
     }
 }
