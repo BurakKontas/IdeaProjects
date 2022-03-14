@@ -69,6 +69,7 @@ public class Main {
             System.out.println("3. Çıkış");
             var scanner = new Scanner(System.in);
             var secim = scanner.nextInt();
+            scanner.nextLine();//int veri bize 6\n olarak geldiğinden dolayı tcNo ya \n düşüyor bu yüzden bufferi temizliyoruz
             if (secim == 1) {
                 var tcNo = scanner.nextLine();
                 var adSoyad = scanner.nextLine();
