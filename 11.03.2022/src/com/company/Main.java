@@ -60,31 +60,36 @@ public class Main {
         listele(doubleSonuc);
 
         //////////////////////////////////////
-        String dosyaYolu="C:/Users/konta/Desktop/Projects/Test/ogrenciler.txt";
-        var ogrenciListesi = new OgrenciListesi(Path.of(dosyaYolu));
-        while(true) {
-            ogrenciListesi.listele();
-            System.out.println("1. Ekle");
-            System.out.println("2. Sil");
-            System.out.println("3. Çıkış");
-            var scanner = new Scanner(System.in);
-            var secim = scanner.nextInt();
-            scanner.nextLine();//int veri bize 6\n olarak geldiğinden dolayı tcNo ya \n düşüyor bu yüzden bufferi temizliyoruz
-            if (secim == 1) {
-                var tcNo = scanner.nextLine();
-                var adSoyad = scanner.nextLine();
-                var adres = scanner.nextLine();
-                var yeniOgrenci = new Ogrenci(tcNo, adSoyad, adres);
-                ogrenciListesi.ekle(yeniOgrenci);
-            } else if (secim == 2) {
-                System.out.println("Silinecek Kaydın Indisini Giriniz: ");
-                var indis = scanner.nextInt();
-                ogrenciListesi.sil(indis);
-            } else if (secim == 3) {
-                ogrenciListesi.dosyayaKaydet();
-                break;
-            }
-        }
+                String dosyaYolu="C:/Users/konta/Desktop/Projects/Test/ogrenciler.txt";
+                var ogrenciListesi = new OgrenciListesi(Path.of(dosyaYolu));
+                while(true) {
+                    System.out.println(ogrenciListesi.listele());
+                    System.out.println("1. Ekle");
+                    System.out.println("2. Sil");
+                    System.out.println("3. Çıkış");
+                    var scanner = new Scanner(System.in);
+                    var secim = scanner.nextInt();
+                    scanner.nextLine();
+                    if (secim == 1) {
+                        System.out.println("Tc:");
+                        var tcNo = scanner.nextLine();
+                        System.out.println("AdSoyad:");
+                        var adSoyad = scanner.nextLine();
+                        System.out.println("Adres:");
+                        var adres = scanner.nextLine();
+                        var yeniOgrenci = new Ogrenci(tcNo, adSoyad, adres);
+                        ogrenciListesi.ekle(yeniOgrenci);
+                    }
+                    if (secim == 2){
+                        System.out.println("Silinecek kaydın indisini giriniz:");
+                        var indis = scanner.nextInt();
+                        ogrenciListesi.sil(indis);
+                    }
+                    if (secim == 3) {
+                        ogrenciListesi.dosyayaKaydet();
+                        break;
+                    }
+                }
         /////////////////////////////////////
 
     }

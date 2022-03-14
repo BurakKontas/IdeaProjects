@@ -9,56 +9,51 @@ import java.util.List;
 
 public class OgrenciListesi {
     private Path dosyaYolu;
-    List<Ogrenci> ogrenciler;
-
-    private Ogrenci parseEt(String satir) {
+    private List<Ogrenci> ogrenciler;
+    private Ogrenci parseEt(String satir){
         var parcalar = satir.split("-");
         return new Ogrenci(parcalar[0],parcalar[1],parcalar[2]);
     }
-
     public OgrenciListesi(Path dosyaYolu) {
-        ogrenciler = new ArrayList<>();
         this.dosyaYolu = dosyaYolu;
-        try {
-            if(Files.exists(dosyaYolu)) {
+        ogrenciler = new ArrayList<>();
+        try{
+            if(Files.exists(dosyaYolu)){
                 var satirlar = Files.readAllLines(dosyaYolu);
-                for (var satir : satirlar) {
+                for(var satir:satirlar){
                     Ogrenci o = parseEt(satir);
                     ogrenciler.add(o);
                 }
-            } else {
-                Files.createFile(dosyaYolu);
             }
-        } catch (IOException err) {
-            System.out.println(err.getMessage());
-        } finally {
-            //dosya kapatma işlemi
-
+            else
+                Files.createFile(dosyaYolu);
         }
-    }
+        catch(IOException exception){
+            System.out.println(exception.getMessage());
+        }
 
-    public void ekle(Ogrenci ogrenci) {
+    }
+    public void ekle(Ogrenci ogrenci){
         ogrenciler.add(ogrenci);
     }
-
-    public void sil(int index) {
+    public void sil(int index){
         ogrenciler.remove(index);
     }
-
     public void dosyayaKaydet(){
         List<String> output = new ArrayList<>();
         for(var ogrenci:ogrenciler)
             output.add(ogrenci.toString());
-        try{
+        try {
             Files.write(dosyaYolu,output);
-        } catch (IOException err) {
-            System.out.println(err.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
-    public String listele() {
-        String output = "-";
+    public String listele(){
+        StringBuilder output= new StringBuilder();
+        int i=0;
         for(var ogrenci:ogrenciler)
-            output += ogrenci.toString() + "\n";
-        return output;
+            output.append(i++).append(" ").append(ogrenci.toString()).append("\n");
+        return output.toString();
     }
 }
