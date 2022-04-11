@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/07.03.2022/07.03.2022.iml" filepath="$PROJECT_DIR$/07.03.2022/07.03.2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11.03.2022/11.03.2022.iml" filepath="$PROJECT_DIR$/11.03.2022/11.03.2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/21.03.2022/21.03.2022.iml" filepath="$PROJECT_DIR$/21.03.2022/21.03.2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/21.03.2022-(2)/21.03.2022-(2).iml" filepath="$PROJECT_DIR$/21.03.2022-(2)/21.03.2022-(2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/28.02.2022/28.02.2022.iml" filepath="$PROJECT_DIR$/28.02.2022/28.02.2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects.iml" filepath="$PROJECT_DIR$/IdeaProjects.iml" />
+    </modules>
+  </component>
+</project>
